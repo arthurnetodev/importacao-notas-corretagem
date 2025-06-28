@@ -9,6 +9,8 @@ class FileProcessor:
 
     # Adicionar o mapeamento entre o nome do ativo que aparece na nota de corretagem e o ticker correspondente
     tickers = {
+        "PETZ": "PETZ3",
+        "SANEPAR": "SAPR4",
         "ABC BRASIL": "ABCB4",
         "ALUPAR": "ALUP11",
         "BRASIL": "BBAS3",
@@ -69,7 +71,7 @@ class FileProcessor:
         for line in orders_lines:
             current_order.append(line)
             # Somente procurar pelo campo que indica o fim do registro (contendo D ou C) a partir do quinto item, pois nos campos iniciais pode ter um campo com o valor C tambem
-            if (len(current_order) > 5):
+            if (len(current_order) > 7):
                 if (line == "D" or line == "C"):
                     if current_order:
                         # Obter os dados da ordem para esse registro finalizado
